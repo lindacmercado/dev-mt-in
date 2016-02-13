@@ -17,7 +17,7 @@
   <div class="wrapper">
     <div>
       <h2>Profile</h2>
-      <button class="l-btn l-btn-main" ng-click=editing = !editing>Editing :</button>
+      <button class="l-btn l-btn-main" ng-click="editing = !editing" value="editing">Editing :</button>
     </div>
 
     <div>
@@ -25,13 +25,13 @@
       <input ng-model="myProfile.name" id="name" type="text" placeholder="Your Name" ng-disabled=!editing>
       <br />
 
-      <input id="likes" type="text" placeholder="Likes" ng-disabled=!editing>
+      <input ng-model="myProfile.likes" id="likes" type="text" placeholder="Likes" ng-disabled=!editing>
       <br />
 
-      <input id="favColor" type="text" placeholder="Favorite Color" ng-disabled=!editing>
+      <input ng-model="myProfile.favColor" id="favColor" type="text" placeholder="Favorite Color" ng-disabled=!editing>
       <br />
-      <button class="l-btn l-btn-success">Save</button>
-      <button class="l-btn l-btn-danger">Delete</button>
+      <button ng-click="saveProfile(myProfile)" class="l-btn l-btn-success">Save</button>
+      <button ng-click="deleteProfile()" class="l-btn l-btn-danger">Delete</button>
     </div>
   </div>
 
@@ -70,6 +70,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
   <script src="app.js"></script>
   <script src="homeCtrl.js"></script>
+  <script src="profileService.js"></script>
 </body>
 
 </html>

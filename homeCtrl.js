@@ -1,10 +1,13 @@
 angular.module('devMtIn')
 .controller('homeCtrl', function($scope, profileService){
 
-  $scope.myProfile = {
-    friends: [{name: 'Ryan'}, {name: 'Bryan'},
-    {name: 'Sarah'}, {name: 'Zac'}, {name: 'Erin'}]
-  };
+  $scope.myProfile = profileService.checkForProfile();
+  
+  $scope.deleteProfile = function() {
+    profileService.deleteProfile();
+    $scope.myProfile = profileService.checkForProfile();
+  }
+
   $scope.sortOptions = [
     {
     display: 'Ascending',
@@ -15,7 +18,12 @@ angular.module('devMtIn')
       value: true
     }
   ];
-  //profileService.serviceTest();
-  $scope.editing = false;
+  $scope.editing = true;
+  profileService.serviceTest();
+
+  $scope.saveProfile = function(profile) {
+    profileService.saveProfile(profile);
+    $scope.editing = false;
+  }
 
 });
