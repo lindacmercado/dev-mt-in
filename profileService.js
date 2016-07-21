@@ -1,4 +1,6 @@
-angular.module('devMtIn').service('profileService', function() {
+angular
+  .module('devMtIn')
+  .service('profileService', function() {
 
   this.serviceTest = function() {
     // alert("profileService is connected!");
